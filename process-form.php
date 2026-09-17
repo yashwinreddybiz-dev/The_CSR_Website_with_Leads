@@ -22,7 +22,7 @@ $discord_webhook_url = "https://discord.com/api/webhooks/1550105246263550033/NzE
 
 $airtable_pat        = "patQjB3aNa9ikhYFp.984c0eae57c8f8895c8d8c03189c3110a8b8fa295743cafb0e0504c17c6cf999"; // e.g., patXXXXXXXXXXXXXX
 $airtable_base_id    = "app6RQ1NDUMQojXJf";               // e.g., appXXXXXXXXXXXXXX
-$airtable_table_name = "tblA9EkOaLup57xm9";                   // Exact name of table in Airtable
+$airtable_table_name = "CSR Website Leads";                   // Exact name of table in Airtable
 
 // =========================================================================
 // 1. Send Instant Lead Card to Discord Webhook
