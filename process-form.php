@@ -33,7 +33,7 @@ if (empty($name) || empty($email)) {
 // =========================================================================
 $discord_webhook_url = "https://discord.com/api/webhooks/1550105246263550033/NzEZwmiwri3JqOpwX4WhNJpgXOY1pMGSXFW3fIcQz76_9h3lzN5uLUMDv918n3QCrZLT";
 
-$airtable_pat        = "patQjB3aNa9ikhYFp.984c0eae57c8f8895c8d8c03189c3110a8b8fa295743cafb0e0504c17c6cf999"; // e.g., patXXXXXXXXXXXXXX
+$airtable_pat        = "patDZITDnsh51Oq3b.68b288c5c362b01f0fb1cf8fcdda3fe08ae0598c4c0b29b61d6603a5a673c4de"; // e.g., patXXXXXXXXXXXXXX
 $airtable_base_id    = "app6RQ1NDUMQojXJf";                   // Your Base ID
 $airtable_table_id   = "tblA9EkOaLup57xm9";                   // Your Table ID (Recommended) or Table Name
 
