@@ -128,6 +128,13 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
     }
 }
 
+// Success response
+if (strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false) {
+    header('Content-Type: application/json');
+    echo json_encode(['status' => 'success']);
+    exit;
+}
+
 // Success redirect
 header("Location: contact.html?status=success#contact");
 exit;

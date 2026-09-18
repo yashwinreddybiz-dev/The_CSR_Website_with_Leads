@@ -385,22 +385,27 @@
         if (!form.checkValidity()) return;
         const btn = form.querySelector('button[type="submit"]');
         const orig = btn ? btn.textContent : '';
+        const restore = function () { if (btn) { btn.disabled = false; btn.textContent = orig; } };
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
         const show = function (text, ok) {
           msg.textContent = text;
           msg.classList.remove('hidden');
           msg.classList.toggle('text-olive dark:text-sagepale', ok);
           msg.classList.toggle('text-red-600 dark:text-red-400', !ok);
-          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          restore();
         };
-        if (!window.fetch) return;
+        if (!window.fetch) { restore(); return; }
         e.preventDefault();
-        fetch(form.action, { method: 'POST', body: new FormData(form) })
+        fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
           .then(function (r) {
-            return r.text().then(function (body) { return { ok: r.ok, url: r.url, body: body }; });
+            return r.json().then(function (data) {
+              return { ok: r.ok, url: r.url, data: data || {}, body: JSON.stringify(data || {}) };
+            }, function () {
+              return r.text().then(function (body) { return { ok: r.ok, url: r.url, data: null, body: body }; });
+            });
           })
           .then(function (res) {
-            if ((res.ok && /status=success/.test(res.url)) || /status=success/.test(res.body || '')) {
+            if (res.ok && ((res.data && res.data.status === 'success') || /status=success/.test(res.url || '') || /status=success/.test(res.body || ''))) {
               show('Submitted — our care team will call you back shortly.', true);
               form.reset();
             } else {
@@ -409,7 +414,8 @@
           })
           .catch(function () {
             show('Network error. Please WhatsApp us at +91 95508 24242 instead.', false);
-          });
+          })
+          .then(restore);
       });
     });
   </script>
