@@ -1,4 +1,0 @@
-# Block public web access to internal markdown, plan, and JSON files
-<FilesMatch "\.(md|json)$">
-    Require all denied
-</FilesMatch>

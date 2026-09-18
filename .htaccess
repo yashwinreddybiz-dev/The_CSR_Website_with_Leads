@@ -1,0 +1,9 @@
+# Block public web access to internal, plan, config, and sensitive files
+<FilesMatch "\.(md|json|env|log|lock)$">
+    Require all denied
+</FilesMatch>
+
+# Block browser access to all dotfiles and dot-directories (.htaccess, .env, .git)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

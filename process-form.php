@@ -1,11 +1,9 @@
-import shutil
-
-php_code = """<?php
+<?php
 // =========================================================================
-// DEBUG MODE: Set to true during troubleshooting to see exact error messages on screen!
-// Set to false once working!
+// DEBUG MODE: Set to true during troubleshooting to see exact error messages on screen.
+// Set to false once verified in production.
 // =========================================================================
-$debug_mode = true; 
+$debug_mode = false;
 
 if ($debug_mode) {
     ini_set('display_errors', 1);
@@ -14,18 +12,22 @@ if ($debug_mode) {
 }
 
 // Security: Anti-spam Honeypot Check
-if (!empty($_POST['website_hp'])) {
+if (!empty($_POST['website'])) {
     die("Spam detected.");
 }
 
-// Sanitize inputs
-$name    = htmlspecialchars(trim($_POST['name'] ?? ''));
-$email   = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-$phone   = htmlspecialchars(trim($_POST['phone'] ?? ''));
-$message = htmlspecialchars(trim($_POST['message'] ?? ''));
+// Sanitize and strip tags from inputs
+function clean($value) {
+    return strip_tags(htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8'));
+}
 
-if (empty($name) || empty($email)) {
-    die("Error: Name and Email are required fields.");
+$name          = clean($_POST['name'] ?? '');
+$whatsapp_phone = clean($_POST['whatsapp_phone'] ?? '');
+$locality      = clean($_POST['locality'] ?? '');
+$package       = clean($_POST['package'] ?? '');
+
+if (empty($name) || empty($whatsapp_phone) || empty($locality) || empty($package)) {
+    die("Error: Full Name, WhatsApp/Phone, Locality, and Package are required.");
 }
 
 // =========================================================================
@@ -49,9 +51,9 @@ if (!empty($discord_webhook_url) && $discord_webhook_url !== "YOUR_DISCORD_WEBHO
                 "color" => 3447003, // Blue
                 "fields" => [
                     ["name" => "Name", "value" => $name, "inline" => true],
-                    ["name" => "Email", "value" => $email, "inline" => true],
-                    ["name" => "Phone", "value" => $phone ?: 'Not provided', "inline" => true],
-                    ["name" => "Message", "value" => $message ?: 'No message', "inline" => false]
+                    ["name" => "WhatsApp/Phone", "value" => $whatsapp_phone, "inline" => true],
+                    ["name" => "Locality", "value" => $locality, "inline" => true],
+                    ["name" => "Package Interest", "value" => $package ?: 'No package selected', "inline" => false]
                 ],
                 "footer" => ["text" => "CSR Website Lead System"]
             ]
@@ -63,6 +65,8 @@ if (!empty($discord_webhook_url) && $discord_webhook_url !== "YOUR_DISCORD_WEBHO
     curl_setopt($ch_discord, CURLOPT_POST, 1);
     curl_setopt($ch_discord, CURLOPT_POSTFIELDS, $discord_payload);
     curl_setopt($ch_discord, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_discord, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch_discord, CURLOPT_CONNECTTIMEOUT, 5);
     curl_exec($ch_discord);
     curl_close($ch_discord);
 }
@@ -77,11 +81,11 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
         "records" => [
             [
                 "fields" => [
-                    "Name"    => $name,
-                    "Email"   => $email,
-                    "Phone"   => $phone,
-                    "Message" => $message,
-                    "Status"  => "New"
+                    "Name"            => $name,
+                    "WhatsApp/Phone"  => $whatsapp_phone,
+                    "Locality"        => $locality,
+                    "Package"         => $package,
+                    "Status"          => "New"
                 ]
             ]
         ]
@@ -95,18 +99,20 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
     curl_setopt($ch_airtable, CURLOPT_POST, 1);
     curl_setopt($ch_airtable, CURLOPT_POSTFIELDS, $airtable_payload);
     curl_setopt($ch_airtable, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_airtable, CURLOPT_TIMEOUT, 15);
+    curl_setopt($ch_airtable, CURLOPT_CONNECTTIMEOUT, 5);
 
     $response  = curl_exec($ch_airtable);
     $http_code = curl_getinfo($ch_airtable, CURLINFO_HTTP_CODE);
     $curl_err  = curl_error($ch_airtable);
     curl_close($ch_airtable);
 
-    // If Airtable rejected the request, display the exact error message!
+    // If Airtable rejected the request, display the exact error message.
     if ($http_code < 200 || $http_code >= 300) {
         if ($debug_mode) {
-            echo "<h2>❌ Airtable API Connection Failed (HTTP " . $http_code . ")</h2>";
+            echo "<h2>Airtable API Connection Failed (HTTP " . $http_code . ")</h2>";
             echo "<p><b>Response from Airtable:</b></p>";
-            echo "<pre style='background:#f4f4f4; p-4; border:1px solid #ccc;'>" . htmlspecialchars($response) . "</pre>";
+            echo "<pre style='background:#f4f4f4; padding:1rem; border:1px solid #ccc;'>" . htmlspecialchars($response) . "</pre>";
             if ($curl_err) {
                 echo "<p><b>cURL Error:</b> " . htmlspecialchars($curl_err) . "</p>";
             }
@@ -114,7 +120,7 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
             echo "<ul>";
             echo "<li><b>HTTP 401 (UNAUTHORIZED):</b> Invalid or expired Personal Access Token (PAT). Check token permissions in Airtable.</li>";
             echo "<li><b>HTTP 404 (NOT FOUND):</b> Base ID or Table ID is wrong.</li>";
-            echo "<li><b>HTTP 422 (UNKNOWN_FIELD_NAME):</b> Column names in Airtable don't match exactly ('Name', 'Email', 'Phone', 'Message', 'Status').</li>";
+            echo "<li><b>HTTP 422 (UNKNOWN_FIELD_NAME):</b> Column names in Airtable don't match exactly ('Name', 'WhatsApp/Phone', 'Locality', 'Package', 'Status').</li>";
             echo "<li><b>HTTP 422 (INVALID_MULTIPLE_CHOICE_OPTIONS):</b> 'Status' column is a Single Select field and 'New' option doesn't exist yet in Airtable.</li>";
             echo "</ul>";
             exit;
@@ -123,5 +129,5 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
 }
 
 // Success redirect
-header("Location: index.html?status=success#contact");
+header("Location: contact.html?status=success#contact");
 exit;

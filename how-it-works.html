@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logo/csr-Logo.png">
+  <title>How It Works — The 6-Step Health Journey | CSR Lifestyle</title>
+  <meta name="description" content="Follow the CSR Lifestyle 6-step health transformation journey in Hyderabad: at-home sample collection, 24-hour digital reports, doctor consultation, custom care plan, weekly accountability, and 3-month retest.">
+  <meta property="og:title" content="CSR Lifestyle — Preventive Healthcare &amp; Home Diagnostics in Hyderabad">
+  <meta property="og:description" content="From reactive treatment to proactive, data-driven health transformation. At-home sample collection across Hyderabad.">
+  <meta property="og:image" content="assets/logo/csr-Logo.png">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Crimson Text"', 'Georgia', 'serif'],
+            mono: ['"Roboto Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            olive: '#485C11',
+            sage: '#8E9C78',
+            sagepale: '#DFECC6',
+            muted: '#6F6F6F',
+            faint: '#929292',
+            line: '#E9E9E9'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(9px); transition: opacity .4s ease, transform .6s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+
+  <!-- Header Navigation -->
+  <header class="fixed inset-x-0 top-0 z-50 px-4 sm:px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-line/60 dark:border-slate-800/60 transition-colors">
+    <div class="mx-auto max-w-[1500px] flex items-center justify-between h-[78px] lg:h-[88px]">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo/csr-Logo.png" alt="CSR Lifestyle logo" width="40" height="40" class="h-10 w-10 rounded-full object-cover shadow-sm">
+        <span class="font-sans text-2xl md:text-[30px] font-medium tracking-tight leading-none">CSR Lifestyle</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle lg:hidden p-2.5 rounded-full hover:opacity-55 transition leading-none" aria-label="Toggle day/night">
+          <span class="theme-icon">
+            <svg class="block dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+        </button>
+        <a href="contact.html" class="hidden md:inline-flex items-center gap-2 rounded-full bg-olive text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage transition">
+          Book Home Collection
+        </a>
+        <button id="menu-btn" class="lg:hidden p-2 rounded-full hover:opacity-55 transition text-xl leading-none" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-line dark:border-slate-700 p-6 shadow-xl mb-4">
+      <nav class="flex flex-col gap-4">
+        <a href="index.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Home</a>
+        <a href="packages.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Packages</a>
+        <a href="how-it-works.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">How It Works</a>
+        <a href="about.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">About</a>
+        <a href="contact.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Contact</a>
+        <a href="contact.html" class="mt-2 text-center rounded-full bg-olive text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage transition">Book Home Collection</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Floating Desktop Nav Pill -->
+  <!-- PILL -->
+    <nav class="hidden lg:flex fixed left-1/2 -translate-x-1/2 top-4 z-50 items-center gap-7 rounded-full bg-white/60 dark:bg-slate-900/60 backdrop-blur-[15px] border border-line/60 dark:border-slate-700/60 px-6 py-3 shadow-sm">
+      <a href="index.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Home</a>
+      <a href="packages.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Packages</a>
+      <a href="how-it-works.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">How It Works</a>
+      <a href="about.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">About</a>
+      <a href="contact.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Contact</a>
+      <span class="w-px h-4 bg-line dark:bg-slate-700"></span>
+      <button class="theme-toggle p-1.5 hover:opacity-55 transition leading-none" aria-label="Toggle day/night">
+        <span class="theme-icon">
+          <svg class="block dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span>
+      </button>
+    </nav>
+
+  <main>
+    <section class="max-w-[1500px] mx-auto px-4 sm:px-8 pt-32 lg:pt-40">
+      <div class="text-center max-w-4xl mx-auto reveal">
+        <p class="font-mono text-[11px] md:text-xs tracking-tight text-olive dark:text-sagepale mb-4">OUR PROCESS · HYDERABAD</p>
+        <h1 class="font-serif text-[clamp(2.9rem,7.5vw,6rem)] leading-[0.85] tracking-[-0.04em]">
+          From doorstep to a full year of better health.
+        </h1>
+        <p class="text-muted dark:text-slate-400 text-[15px] md:text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
+          Six simple steps — home collection, fast digital reports, a doctor consultation, a custom care plan, weekly accountability, and long-term progress analytics.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6-step timeline -->
+    <section class="max-w-[1500px] mx-auto px-4 sm:px-8 py-20 lg:py-24 border-t border-line dark:border-slate-700/70">
+      <div class="max-w-2xl mb-12 reveal">
+        <p class="font-mono text-[11px] md:text-xs tracking-tight text-olive dark:text-sagepale mb-4">The Journey</p>
+        <h2 class="font-serif text-4xl md:text-[52px] leading-[1.05] tracking-[-0.02em]">Your 6-step transformation.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">01</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">At-Home Sample Collection</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">A certified phlebotomist collects your blood samples at your doorstep — across Gachibowli, Jubilee Hills, Madhapur, Hitec City, Secunderabad, Kondapur and nearby areas.</p>
+        </div>
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal" style="transition-delay:.08s">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">02</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">Fast Digital Lab Reports</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">Your diagnostic results are delivered to WhatsApp and Email within 24 hours — clear, readable, and ready to discuss.</p>
+        </div>
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal" style="transition-delay:.16s">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">03</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">10-Minute Doctor Consultation</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">A physician reviews your report over telehealth video or phone and answers all your specific medical queries.</p>
+        </div>
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal" style="transition-delay:.24s">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">04</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">Custom Care Plan</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">Receive a personalized diet plan, targeted supplement recommendations, and prescription medications if needed.</p>
+        </div>
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal" style="transition-delay:.32s">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">05</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">Weekly Accountability</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">For 4–12 weeks, our team checks in regularly to keep your diet adherence and supplement routine on track.</p>
+        </div>
+        <div class="border-t border-line dark:border-slate-700/70 pt-8 reveal" style="transition-delay:.4s">
+          <span class="block font-sans text-6xl leading-none tracking-tighter text-faint dark:text-slate-500">06</span>
+          <h3 class="font-serif text-[24px] leading-snug mt-6">3-Month Retest &amp; 1-Year Analytics</h3>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-3">A 90-day progress retest leads into a 1-year visual health trend graph so you can see exactly how far you’ve come.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fasting prep + retest -->
+    <section class="max-w-[1500px] mx-auto px-4 sm:px-8 py-20 lg:py-24 border-t border-line dark:border-slate-700/70">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div class="rounded-[24px] border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md p-8 lg:p-10 shadow-sm reveal">
+          <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-3">BEFORE YOUR SAMPLE</p>
+          <h2 class="font-serif text-3xl md:text-[36px] leading-[1.05] tracking-[-0.02em]">Pre-test fasting guidelines</h2>
+          <ul class="mt-6 space-y-3 text-[15px] text-muted dark:text-slate-400">
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale">✓</span> Fast for 8–10 hours overnight before your collection.</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale">✓</span> Drink plenty of water — hydration helps the draw.</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale">✓</span> Avoid alcohol and vigorous exercise for 24 hours prior.</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale">✓</span> Take your regular morning medicines unless advised otherwise.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-[24px] border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md p-8 lg:p-10 shadow-sm reveal" style="transition-delay:.1s">
+          <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-3">AFTER YOUR CARE JOURNEY</p>
+          <h2 class="font-serif text-3xl md:text-[36px] leading-[1.05] tracking-[-0.02em]">Retest, track, and see the trend.</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-6 leading-relaxed">
+            At the 3-month mark you retake your core lab panel to measure real progress. Results feed into a 1-year visual health trend graph — your personal proof that small, consistent changes compound.
+          </p>
+          <div class="mt-8">
+            <a href="packages.html" class="inline-flex items-center gap-2 rounded-full bg-olive text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage transition">View Packages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App section -->
+    <section class="max-w-[1500px] mx-auto px-4 sm:px-8 py-20 lg:py-24 border-t border-line dark:border-slate-700/70">
+      <div class="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <p class="font-mono text-[11px] md:text-xs tracking-tight text-olive dark:text-sagepale mb-4">Mobile App</p>
+          <h2 class="font-serif text-4xl md:text-[52px] leading-[1.05] tracking-[-0.02em]">Take your health journey with you.</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] mt-6 max-w-lg">
+            Reports, care plans, doctor calls, and your 1-year trend graph — all in the CSR Lifestyle Android app, coming back soon.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <span class="rounded-full bg-sagepale dark:bg-sagepale/15 text-black dark:text-sagepale font-bold text-sm tracking-tight px-6 py-3.5">App Returning Soon</span>
+            <!-- TODO: INSERT PLAY STORE LINK HERE -->
+            <a href="#" class="inline-flex items-center gap-2 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage hover:text-white transition">Get it on Google Play</a>
+          </div>
+        </div>
+
+        <div class="relative rounded-[30px] overflow-hidden bg-sage h-72 lg:h-[420px] flex items-end p-8 shadow-sm reveal">
+          <img src="assets/img/app-analytics.jpg" alt="Android phone showing health trend analytics app" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent"></div>
+          <div class="relative z-10 w-full rounded-2xl bg-white/70 dark:bg-black/40 backdrop-blur-md px-6 py-4 shadow-md">
+            <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-1">1-YEAR ANALYTICS</p>
+            <p class="font-serif text-lg leading-snug">Watch your markers move in the right direction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-[1500px] mx-auto px-4 sm:px-8 py-20 lg:py-24 border-t border-line dark:border-slate-700/70 reveal">
+      <div class="rounded-[30px] bg-sage px-8 py-16 lg:p-20 text-center">
+        <h2 class="font-serif text-4xl md:text-[52px] leading-[1.05] tracking-[-0.02em] text-black">Ready to start step one?</h2>
+        <p class="text-black/70 text-[15px] mt-6 max-w-md mx-auto">Book a free home collection today. No fixed prices — we call you with a custom plan.</p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="inline-flex items-center gap-2 rounded-full bg-olive text-white font-bold text-sm tracking-tight px-8 py-4 hover:bg-black/20 hover:text-black transition">Book Home Collection</a>
+        </div>
+      </div>
+    </section>
+    <!-- /HIW_MAIN -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-[1500px] mx-auto px-4 sm:px-8 pt-12 pb-8 border-t border-line dark:border-slate-700/70">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="flex flex-col gap-5">
+        <a href="index.html" class="flex items-center gap-3 w-fit">
+          <img src="assets/logo/csr-Logo.png" alt="CSR Lifestyle logo" width="44" height="44" class="h-11 w-11 rounded-full object-cover shadow-sm">
+          <span class="font-sans text-2xl tracking-tight leading-none">CSR Lifestyle</span>
+        </a>
+        <p class="text-[15px] text-muted dark:text-slate-400 leading-relaxed max-w-[26ch]">Preventive healthcare &amp; nutrition coaching in Hyderabad — care that prevents, not just treats.</p>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/csrlifestyleacademy/" target="_blank" rel="noopener" aria-label="CSR Lifestyle on Instagram" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCWinhuQRMp5ajt_NTwLFYHw" target="_blank" rel="noopener" aria-label="CSR Lifestyle on YouTube" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          </a>
+          <a href="https://wa.me/919550824242" target="_blank" rel="noopener" aria-label="Chat with CSR Lifestyle on WhatsApp" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48a9.02 9.02 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.6.14-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.24-.7.24-1.29.17-1.42-.07-.12-.27-.2-.57-.34zM12.05 21.5h-.03a9.44 9.44 0 0 1-4.81-1.32l-.34-.21-3.58.94.96-3.49-.22-.36a9.42 9.42 0 0 1-1.45-5.04 9.46 9.46 0 0 1 9.48-9.44 9.45 9.45 0 0 1 9.47 9.46 9.47 9.47 0 0 1-9.48 9.46z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">QUICK LINKS</p>
+        <nav class="flex flex-col gap-2.5 text-sm font-bold tracking-tight">
+          <a href="index.html" class="hover:opacity-55 transition">Home</a>
+          <a href="packages.html" class="hover:opacity-55 transition">Packages</a>
+          <a href="how-it-works.html" class="hover:opacity-55 transition">How It Works</a>
+          <a href="about.html" class="hover:opacity-55 transition">About</a>
+          <a href="contact.html" class="hover:opacity-55 transition">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">SERVICE AREAS</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Gachibowli</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Jubilee Hills</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Madhapur</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Hitec City</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Secunderabad</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Kondapur</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Kukatpally</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Banjara Hills</span>
+        </div>
+        <p class="text-[13px] text-muted dark:text-slate-400 mt-4">More Hyderabad localities added every month.</p>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">CONTACT</p>
+        <div class="flex flex-col gap-2.5 text-sm font-bold tracking-tight">
+          <a href="https://wa.me/919550824242" target="_blank" rel="noopener" class="hover:opacity-55 transition">WhatsApp +91 95508 24242</a>
+          <a href="tel:+919550824242" class="hover:opacity-55 transition">+91 95508 24242</a>
+          <a href="mailto:info@csrlifestyle.com" class="hover:opacity-55 transition">info@csrlifestyle.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-line dark:border-slate-700/70 flex flex-col md:flex-row md:items-center md:justify-between gap-2 font-mono text-[11px] tracking-tight text-olive/70 dark:text-sagepale/70">
+      <p>© CSR Lifestyle. <span id="year"></span> All Rights Reserved</p>
+      <p>CSR Lifestyle Private Limited, Hyderabad</p>
+      <p>Your diagnostic data stays private. Read our <a href="privacy-policy.html" class="hover:opacity-55 transition underline underline-offset-2">Privacy Policy</a> for full details.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggles = document.querySelectorAll('.theme-toggle');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+    });
+  </script>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <script>
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  </script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

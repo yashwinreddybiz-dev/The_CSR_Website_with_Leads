@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/logo/csr-Logo.png">
+  <title>Privacy Policy — Your Health Data Stays Yours | CSR Lifestyle</title>
+  <meta name="description" content="CSR Lifestyle’s Privacy Policy: what personal and diagnostic information we collect in Hyderabad, why we collect it, how we protect and share it, and your data rights under the DPDP Act and HIPAA-grade safeguards.">
+  <meta property="og:title" content="Privacy Policy — CSR Lifestyle Preventive Healthcare, Hyderabad">
+  <meta property="og:description" content="Your health data stays yours. Read how CSR Lifestyle collects, protects, and shares your personal and diagnostic information.">
+  <meta property="og:image" content="assets/logo/csr-Logo.png">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Crimson Text"', 'Georgia', 'serif'],
+            mono: ['"Roboto Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            olive: '#485C11',
+            sage: '#8E9C78',
+            sagepale: '#DFECC6',
+            muted: '#6F6F6F',
+            faint: '#929292',
+            line: '#E9E9E9'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(9px); transition: opacity .4s ease, transform .6s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+  </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+
+  <!-- Header Navigation -->
+  <header class="fixed inset-x-0 top-0 z-50 px-4 sm:px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-line/60 dark:border-slate-800/60 transition-colors">
+    <div class="mx-auto max-w-[1500px] flex items-center justify-between h-[78px] lg:h-[88px]">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo/csr-Logo.png" alt="CSR Lifestyle logo" width="40" height="40" class="h-10 w-10 rounded-full object-cover shadow-sm">
+        <span class="font-sans text-2xl md:text-[30px] font-medium tracking-tight leading-none">CSR Lifestyle</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <button class="theme-toggle lg:hidden p-2.5 rounded-full hover:opacity-55 transition leading-none" aria-label="Toggle day/night">
+          <span class="theme-icon">
+            <svg class="block dark:hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="hidden dark:block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+        </button>
+        <a href="contact.html" class="hidden md:inline-flex items-center gap-2 rounded-full bg-olive text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage transition">
+          Book Home Collection
+        </a>
+        <button id="menu-btn" class="lg:hidden p-2 rounded-full hover:opacity-55 transition text-xl leading-none" aria-label="Open menu">
+          ☰
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl border border-line dark:border-slate-700 p-6 shadow-xl mb-4">
+      <nav class="flex flex-col gap-4">
+        <a href="index.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Home</a>
+        <a href="packages.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Packages</a>
+        <a href="how-it-works.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">How It Works</a>
+        <a href="about.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">About</a>
+        <a href="contact.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Contact</a>
+        <a href="contact.html" class="mt-2 text-center rounded-full bg-olive text-white font-bold text-sm tracking-tight px-6 py-3.5 hover:bg-sage transition">Book Home Collection</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Floating Desktop Nav Pill -->
+  <!-- PILL -->
+    <nav class="hidden lg:flex fixed left-1/2 -translate-x-1/2 top-4 z-50 items-center gap-7 rounded-full bg-white/60 dark:bg-slate-900/60 backdrop-blur-[15px] border border-line/60 dark:border-slate-700/60 px-6 py-3 shadow-sm">
+      <a href="index.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Home</a>
+      <a href="packages.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Packages</a>
+      <a href="how-it-works.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">How It Works</a>
+      <a href="about.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">About</a>
+      <a href="contact.html" class="font-bold text-sm tracking-tight hover:opacity-55 transition">Contact</a>
+      <span class="w-px h-4 bg-line dark:bg-slate-700"></span>
+      <button class="theme-toggle p-1.5 hover:opacity-55 transition leading-none" aria-label="Toggle day/night">
+        <span class="theme-icon">
+          <svg class="block dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </span>
+      </button>
+    </nav>
+
+  <main>
+    <section class="max-w-[900px] mx-auto px-4 sm:px-8 pt-32 lg:pt-40 pb-16 lg:pb-20 reveal">
+      <p class="font-mono text-[11px] md:text-xs tracking-tight text-olive dark:text-sagepale mb-4">PRIVACY &amp; DATA PROTECTION</p>
+      <h1 class="font-serif text-[clamp(2.9rem,7.5vw,5.5rem)] leading-[0.85] tracking-[-0.04em]">Your health data stays yours.</h1>
+      <p class="mt-8 text-muted dark:text-slate-400 text-[15px] md:text-lg leading-relaxed max-w-2xl">
+        Last updated: 18 September 2026. We review this policy as our services evolve and update the date above when we do.
+      </p>
+    </section>
+
+    <section class="max-w-[900px] mx-auto px-4 sm:px-8 pb-24 lg:pb-32 border-t border-line dark:border-slate-700/70">
+      <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mt-10 mb-10">CSR Lifestyle Private Limited, Hyderabad — connects Hyderabad residents with preventive healthcare: at-home sample collection, 24-hour digital lab reports, doctor consultations, and personalized care plans. This policy explains what personal information we collect, why, how we protect it, and the rights you hold.</p>
+
+      <div class="space-y-16">
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Information we collect</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">When you book a home collection, join a waitlist, or reach out to us, we collect only what we need to care for you:</p>
+          <ul class="mt-5 space-y-3 text-[15px] text-muted dark:text-slate-400">
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Full name, WhatsApp / phone number, and your Hyderabad locality or pincode</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> The health package or service you are interested in</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Diagnostic results produced during your care journey with CSR Lifestyle</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Any additional details you voluntarily share with your care team</li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Why we collect it</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            We use your information to schedule and deliver your care — never to sell it. Specifically:
+          </p>
+          <ul class="mt-5 space-y-3 text-[15px] text-muted dark:text-slate-400">
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> To arrange certified phlebotomist visits across Hyderabad and call you back with a custom quote</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> To deliver digital lab reports to your WhatsApp and Email within 24 hours</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> To schedule doctor consultations and ongoing care-journey check-ins</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> To comply with legal, audit, and quality obligations</li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">How reports are shared</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Your diagnostic reports are shared only with you and the care staff actively working on your journey — the physicians and clinical coordinators who interpret results and guide your plan. We do not sell, rent, or trade your personal or diagnostic data with anyone.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Partners &amp; service providers</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Limited, essential third parties help us operate, and each is bound by access-only-what-is-needed practices:
+          </p>
+          <ul class="mt-5 space-y-3 text-[15px] text-muted dark:text-slate-400">
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Certified partner laboratories that produce your diagnostic results</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Secure internal record-keeping and messaging services used only by our care team (e.g. Airtable, Discord)</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> WhatsApp, email, and phone carriers that physically deliver your reports and messages</li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Data security &amp; retention</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Diagnostic records are stored in encrypted systems with role-based access. We retain personal data only while your care journey is active and for the period needed to meet legal, clinical, and audit requirements. You can request deletion of your records at any time (subject to legal obligations to retain some records), and we will action it promptly.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Your rights &amp; compliance</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Our privacy practices are aligned with India’s Digital Personal Data Protection (DPDP) Act and apply HIPAA-grade safeguards wherever we serve international partners. You have the right to:
+          </p>
+          <ul class="mt-5 space-y-3 text-[15px] text-muted dark:text-slate-400">
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Access a copy of the personal data we hold about you</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Ask us to correct inaccurate details</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Object to, or withdraw consent for, specific uses</li>
+            <li class="flex gap-3"><span class="text-olive dark:text-sagepale shrink-0">→</span> Request deletion or restriction of processing where permitted</li>
+          </ul>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed mt-5">
+            To exercise any of these rights, contact us using the details below — we will respond within the timeframes required by law.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Cookies &amp; analytics</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            This website does not use tracking cookies. The only thing stored on your device is your day/night theme preference in your browser’s local storage, so the site can remember how you like to view it. No behavioural profiling or advertising trackers are used.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">External links</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Links to WhatsApp, Instagram, and YouTube open third-party services with their own privacy policies. We encourage you to review those policies before using those services; once you leave this website, their terms apply.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Changes to this policy</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            If we change how we handle personal information, we will update this page and revise the "Last updated" date above. Material changes may also be announced through the website or by message via the contact details you have shared with us.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-[36px] leading-tight mb-5">Contact us</h2>
+          <p class="text-muted dark:text-slate-400 text-[15px] leading-relaxed">
+            Questions, requests, or privacy concerns? Reach the CSR Lifestyle care team:
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/919550824242" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white font-bold text-sm tracking-tight px-5 py-3 hover:bg-sage hover:text-white transition">WhatsApp +91 95508 24242</a>
+            <a href="tel:+919550824242" class="inline-flex items-center gap-2 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white font-bold text-sm tracking-tight px-5 py-3 hover:bg-sage hover:text-white transition">+91 95508 24242</a>
+            <a href="mailto:info@csrlifestyle.com" class="inline-flex items-center gap-2 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white font-bold text-sm tracking-tight px-5 py-3 hover:bg-sage hover:text-white transition">info@csrlifestyle.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-[1500px] mx-auto px-4 sm:px-8 pt-12 pb-8 border-t border-line dark:border-slate-700/70">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="flex flex-col gap-5">
+        <a href="index.html" class="flex items-center gap-3 w-fit">
+          <img src="assets/logo/csr-Logo.png" alt="CSR Lifestyle logo" width="44" height="44" class="h-11 w-11 rounded-full object-cover shadow-sm">
+          <span class="font-sans text-2xl tracking-tight leading-none">CSR Lifestyle</span>
+        </a>
+        <p class="text-[15px] text-muted dark:text-slate-400 leading-relaxed max-w-[26ch]">Preventive healthcare &amp; nutrition coaching in Hyderabad — care that prevents, not just treats.</p>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/csrlifestyleacademy/" target="_blank" rel="noopener" aria-label="CSR Lifestyle on Instagram" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCWinhuQRMp5ajt_NTwLFYHw" target="_blank" rel="noopener" aria-label="CSR Lifestyle on YouTube" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          </a>
+          <a href="https://wa.me/919550824242" target="_blank" rel="noopener" aria-label="Chat with CSR Lifestyle on WhatsApp" class="h-10 w-10 rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-black dark:text-white flex items-center justify-center hover:bg-sage hover:text-white hover:border-sage transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48a9.02 9.02 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.6.14-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.42.24-.7.24-1.29.17-1.42-.07-.12-.27-.2-.57-.34zM12.05 21.5h-.03a9.44 9.44 0 0 1-4.81-1.32l-.34-.21-3.58.94.96-3.49-.22-.36a9.42 9.42 0 0 1-1.45-5.04 9.46 9.46 0 0 1 9.48-9.44 9.45 9.45 0 0 1 9.47 9.46 9.47 9.47 0 0 1-9.48 9.46z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">QUICK LINKS</p>
+        <nav class="flex flex-col gap-2.5 text-sm font-bold tracking-tight">
+          <a href="index.html" class="hover:opacity-55 transition">Home</a>
+          <a href="packages.html" class="hover:opacity-55 transition">Packages</a>
+          <a href="how-it-works.html" class="hover:opacity-55 transition">How It Works</a>
+          <a href="about.html" class="hover:opacity-55 transition">About</a>
+          <a href="contact.html" class="hover:opacity-55 transition">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">SERVICE AREAS</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Gachibowli</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Jubilee Hills</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Madhapur</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Hitec City</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Secunderabad</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Kondapur</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Kukatpally</span>
+          <span class="rounded-full border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-3 py-1.5 text-[13px] text-muted dark:text-slate-400">Banjara Hills</span>
+        </div>
+        <p class="text-[13px] text-muted dark:text-slate-400 mt-4">More Hyderabad localities added every month.</p>
+      </div>
+
+      <div>
+        <p class="font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-4">CONTACT</p>
+        <div class="flex flex-col gap-2.5 text-sm font-bold tracking-tight">
+          <a href="https://wa.me/919550824242" target="_blank" rel="noopener" class="hover:opacity-55 transition">WhatsApp +91 95508 24242</a>
+          <a href="tel:+919550824242" class="hover:opacity-55 transition">+91 95508 24242</a>
+          <a href="mailto:info@csrlifestyle.com" class="hover:opacity-55 transition">info@csrlifestyle.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-line dark:border-slate-700/70 flex flex-col md:flex-row md:items-center md:justify-between gap-2 font-mono text-[11px] tracking-tight text-olive/70 dark:text-sagepale/70">
+      <p>© CSR Lifestyle. <span id="year"></span> All Rights Reserved</p>
+      <p>CSR Lifestyle Private Limited, Hyderabad</p>
+      <p>Your diagnostic data stays private. Read our <a href="privacy-policy.html" class="hover:opacity-55 transition underline underline-offset-2">Privacy Policy</a> for full details.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggles = document.querySelectorAll('.theme-toggle');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      });
+    });
+  </script>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <script>
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  </script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
