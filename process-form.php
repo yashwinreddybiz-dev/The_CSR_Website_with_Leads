@@ -156,8 +156,12 @@ if (!empty($airtable_pat) && $airtable_pat !== "YOUR_AIRTABLE_PERSONAL_ACCESS_TO
     }
 }
 
-// Success response
-if (strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false) {
+// Success response — AJAX requests get JSON; plain (no-JS) form posts get a redirect.
+// Detect AJAX via the header the page JS always sends (X-Requested-With), because some
+// hosts proxy or strip the Accept header but forward X-Requested-With intact.
+$wants_json = (strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false)
+    || (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'XMLHttpRequest');
+if ($wants_json) {
     header('Content-Type: application/json');
     echo json_encode(['status' => 'success']);
     exit;

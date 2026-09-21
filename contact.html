@@ -43,6 +43,7 @@
     .reveal { opacity: 0; transform: translateY(9px); transition: opacity .4s ease, transform .6s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
     h1, h2, h3, h4 { text-wrap: balance; }
+    html { scroll-padding-top: 100px; /* keep anchored sections clear of the fixed header */ }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
   </style>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
@@ -125,12 +126,12 @@
 
             <div>
               <label for="name" class="block font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-2">Full Name</label>
-              <input id="name" type="text" name="name" required class="w-full rounded-xl border border-line dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-sage">
+              <input id="name" type="text" name="name" required autocomplete="name" class="w-full rounded-xl border border-line dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-sage">
             </div>
 
             <div>
               <label for="whatsapp_phone" class="block font-mono text-[11px] tracking-tight text-olive dark:text-sagepale mb-2">WhatsApp / Phone Number</label>
-              <input id="whatsapp_phone" type="tel" name="whatsapp_phone" required class="w-full rounded-xl border border-line dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-sage">
+              <input id="whatsapp_phone" type="tel" name="whatsapp_phone" required inputmode="tel" autocomplete="tel" pattern="[0-9+()\-\s]{7,20}" title="Enter a valid phone or WhatsApp number" class="w-full rounded-xl border border-line dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-sage">
             </div>
 
             <div>
@@ -268,32 +269,52 @@
     document.querySelectorAll('form[action="process-form.php"]').forEach(function (form) {
       const msg = document.createElement('div');
       msg.className = 'hidden mt-4 rounded-xl border border-line dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 px-4 py-3 text-sm';
+      msg.setAttribute('role', 'status');
+      msg.setAttribute('aria-live', 'polite');
       form.appendChild(msg);
+
+      function restoreButton(btn, orig) {
+        try { if (btn) { btn.disabled = false; btn.textContent = orig; } } catch (err) {}
+      }
+
       form.addEventListener('submit', function (e) {
-        if (!form.checkValidity()) return;
+        if (!window.fetch || !form.checkValidity()) return; // native fallback (no JS/fetch)
+        e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
         const orig = btn ? btn.textContent : '';
-        const restore = function () { if (btn) { btn.disabled = false; btn.textContent = orig; } };
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
         const show = function (text, ok) {
-          msg.textContent = text;
-          msg.classList.remove('hidden');
-          msg.classList.toggle('text-olive dark:text-sagepale', ok);
-          msg.classList.toggle('text-red-600 dark:text-red-400', !ok);
-          restore();
+          try {
+            msg.textContent = text;
+            msg.classList.remove('hidden');
+            msg.classList.toggle('text-olive dark:text-sagepale', ok);
+            msg.classList.toggle('text-red-600 dark:text-red-400', !ok);
+          } catch (err) {}
+          restoreButton(btn, orig);
         };
-        if (!window.fetch) { restore(); return; }
-        e.preventDefault();
-        fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        const isSuccess = function (res) {
+          if (!res || !res.ok) return false;
+          if (res.data && res.data.status === 'success') return true;
+          if (/status=success/.test(res.url || '')) return true;
+          if (/status=success/.test(res.body || '')) return true;
+          return false;
+        };
+
+        if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+          body: new FormData(form)
+        })
           .then(function (r) {
-            return r.json().then(function (data) {
-              return { ok: r.ok, url: r.url, data: data || {}, body: JSON.stringify(data || {}) };
-            }, function () {
-              return r.text().then(function (body) { return { ok: r.ok, url: r.url, data: null, body: body }; });
+            // Read the body exactly once; JSON or plain HTML both work.
+            return r.text().then(function (body) {
+              let data = null;
+              try { data = JSON.parse(body); } catch (err) {}
+              return { ok: r.ok, url: r.url, data: data, body: body };
             });
           })
           .then(function (res) {
-            if (res.ok && ((res.data && res.data.status === 'success') || /status=success/.test(res.url || '') || /status=success/.test(res.body || ''))) {
+            if (isSuccess(res)) {
               show('Submitted — our care team will call you back shortly.', true);
               form.reset();
             } else {
@@ -303,7 +324,7 @@
           .catch(function () {
             show('Network error. Please WhatsApp us at +91 95508 24242 instead.', false);
           })
-          .then(restore);
+          .then(function () { restoreButton(btn, orig); });
       });
     });
   </script>
