@@ -31,13 +31,41 @@ if (empty($name) || empty($whatsapp_phone) || empty($locality) || empty($package
 }
 
 // =========================================================================
-// CONFIGURATION - Replace with your actual Keys & IDs
+// CONFIGURATION — from environment variables only.
+// Real keys NEVER go in this file or in git. Copy .env.example to .env on
+// the server and fill values there (this script loads .env locally too).
 // =========================================================================
-$discord_webhook_url = "https://discord.com/api/webhooks/1550105246263550033/NzEZwmiwri3JqOpwX4WhNJpgXOY1pMGSXFW3fIcQz76_9h3lzN5uLUMDv918n3QCrZLT";
 
-$airtable_pat        = "patDZITDnsh51Oq3b.68b288c5c362b01f0fb1cf8fcdda3fe08ae0598c4c0b29b61d6603a5a673c4de"; // e.g., patXXXXXXXXXXXXXX
-$airtable_base_id    = "app6RQ1NDUMQojXJf";                   // Your Base ID
-$airtable_table_id   = "tblA9EkOaLup57xm9";                   // Your Table ID (Recommended) or Table Name
+// Minimal .env loader (no dependencies). Reads KEY=VALUE lines from .env
+// next to this file; real environment variables take precedence.
+function __csr_load_env(string $dir): void {
+    $path = rtrim($dir, '/\\') . '/.env';
+    if (!is_file($path) || !is_readable($path)) {
+        return;
+    }
+    foreach (file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) {
+            continue;
+        }
+        [$key, $value] = array_map('trim', explode('=', $line, 2));
+        if ($key !== '' && getenv($key) === false) {
+            putenv($key . '=' . $value);
+        }
+    }
+}
+
+function __csr_env(string $key, string $default = ''): string {
+    $value = getenv($key);
+    return ($value === false || $value === '') ? $default : $value;
+}
+
+__csr_load_env(__DIR__);
+
+$discord_webhook_url = __csr_env('DISCORD_WEBHOOK_URL', '');
+$airtable_pat        = __csr_env('AIRTABLE_PAT', '');
+$airtable_base_id    = __csr_env('AIRTABLE_BASE_ID', '');
+$airtable_table_id   = __csr_env('AIRTABLE_TABLE_ID', '');
 
 // =========================================================================
 // 1. Send Instant Lead Card to Discord Webhook
